@@ -1,0 +1,66 @@
+<!-- component -->
+<div class="py-6">
+    <div class="flex bg-white rounded-lg shadow-lg shadow-sky-500 overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+          <div class="w-full p-8 lg:w-1/2">
+              <h2 class="text-2xl font-semibold text-gray-700 text-center">E-commerce</h2>
+              <p class="text-xl text-gray-600 text-center">Bienvenido</p>
+            <div class="mt-4 flex items-center justify-between">
+                <span class="border-b w-1/5 lg:w-1/4"></span>
+                <a href="#" class="text-xs text-center text-gray-500 uppercase">Sing Up</a>
+                <span class="border-b w-1/5 lg:w-1/4"></span>
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
+                </div>
+                <input [(ngModel)]="formData.nombre" name="nombre" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Apellido</label>
+                </div>
+                <input [(ngModel)]="formData.apellido" name="apellido" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+              <input [(ngModel)]="formData.email" name="email" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">imagenUrl</label>
+                </div>
+                <input [(ngModel)]="formData.img_url" name="img_url" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Ciudad</label>
+                </div>
+                <input [(ngModel)]="formData.ciudad" name="ciudad" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Numero de Contacto</label>
+                </div>
+                <input [(ngModel)]="formData.numeroContacto" name="numeroContacto" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="number">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                  <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                </div>
+                <input [(ngModel)]="formData.password" name="password" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password">
+            </div>
+            <div class="mt-8">
+                <button class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600" (click)="singUp()">Sing Up</button>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+                <span class="border-b w-1/5 md:w-1/4"></span>
+                <a [routerLink]="['/pages/login']" class="text-xs text-gray-500 uppercase">or login</a>
+                <span class="border-b w-1/5 md:w-1/4"></span>
+            </div>
+        </div>
+        <div class="hidden lg:w-1/2 lg:flex lg:items-center lg:justify-center bg-black">
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/e-commerce-logo-design-template-5dcf2e4daab6379d4824c6dc04e26f17_screen.jpg?ts=1645336764">
+        </div>
+      </div>
+  </div>
+

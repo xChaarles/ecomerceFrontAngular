@@ -11,7 +11,8 @@
     <div class="navbar-center flex "> 
         <div class="menu menu-sm sm:menu-lg menu-horizontal px-1">
             <li>
-                <a href="/">Inicio</a>
+                <a [routerLink]="['pages/home']"
+                >Inicio</a>
             </li>
             <li>
                 <details #productsMenu>
@@ -38,7 +39,12 @@
             </div>
             <ul class="dropdown-content menu menu-lg bg-base-100 rounded-box z-10 w-52 p-2 shadow">
                 <li>
-                    <button class="link">Login</button>
+                    <button [routerLink]="['pages/login']"
+                    class="link">Login</button>
+                </li>
+                <li>
+                    <button [routerLink]="['pages/singUp']"
+                    class="link">SingUp</button>
                 </li>
             </ul>
         </div>
