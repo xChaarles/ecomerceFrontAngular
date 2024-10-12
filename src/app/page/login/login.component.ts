@@ -28,12 +28,19 @@ export default class LoginComponent {
     }
     try{
       const response = await this.userService.login(this.email, this.password);
+      console.log('Response:', response);
       if(response.statusCode == 200){
         localStorage.setItem('token', response.token) //almacena el token en el localstorage de la pagina
         localStorage.setItem('role', response.role)   //almacena el tipo de rol si es usuario o admin
-        this.router.navigate(['/pages/home']).then(() => {
+        localStorage.setItem('img_url', response.img_url || '')
+        
+        const redirecto = 'pages/home';
+        console.log('Redirigiendo a:',redirecto) 
+        if(redirecto){
+        this.router.navigate([redirecto]).then(() => {
           window.location.reload();
-        });
+          });
+        }
       }else{
         this.showError(response.message) //esto es un mensaje de error si la contraseña sea incorrecta 
       }
