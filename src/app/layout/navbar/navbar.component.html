@@ -22,6 +22,7 @@
                     </ul>
                 </details>
             </li>
+            @if (isAdmin) {
             <li>
                 <details #adminMenu>
                     <summary>Admin</summary>
@@ -30,6 +31,7 @@
                     </ul>
                 </details>
             </li>
+            }
         </div>
     </div>
     <div class="navbar-end pe-4 flex align-items-center">
@@ -38,14 +40,28 @@
                 <fa-icon [icon]="['fas', 'user']" class="menu-icon"></fa-icon>
             </div>
             <ul class="dropdown-content menu menu-lg bg-base-100 rounded-box z-10 w-52 p-2 shadow">
+                @if (!isAuthenticated){
                 <li>
                     <button [routerLink]="['pages/login']"
                     class="link">Login</button>
                 </li>
+                }
+                @if (!isAuthenticated){
                 <li>
                     <button [routerLink]="['pages/singUp']"
                     class="link">SingUp</button>
                 </li>
+                }
+                @if (isAuthenticated){
+                <li>
+                    <button [routerLink]="['pages/singUp']"
+                    class="link">perfil</button>
+                </li>
+                @if (isAuthenticated) {
+                    <button (click)="logout()"
+                    class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Cerrar Sesion</button>
+                    }
+                }
             </ul>
         </div>
         <div class="dropdown dropdown-end me-2" [routerLink]="['/cart']">

@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'
+import { UserService } from '../../service/user.service';
+import { catchError, tap, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +12,34 @@ import { FormsModule } from '@angular/forms'
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export default class LoginComponent implements OnInit{
+export default class LoginComponent {
 
   email: string = '';
   password: string = '';
   errorMessage: string = '';
 
-  ngOnInit(): void {
-  
+  constructor(private readonly userService: UserService, private router: Router){}
+
+
+  async login(){
+    if (!this.email || !this.password) { //Validamos si el email o la contraseña no tengan campos vacios
+      this.showError("El Email y la Contraseña son requeridos"); // si alguno no cumple mostrara este error
+      return
+    }
+    try{
+      const response = await this.userService.login(this.email, this.password);
+      if(response.statusCode == 200){
+        localStorage.setItem('token', response.token) //almacena el token en el localstorage de la pagina
+        localStorage.setItem('role', response.role)   //almacena el tipo de rol si es usuario o admin
+        this.router.navigate(['/pages/home']).then(() => {
+          window.location.reload();
+        });
+      }else{
+        this.showError(response.message) //esto es un mensaje de error si la contraseña sea incorrecta 
+      }
+    }catch(error:any){
+      this.showError(error.message)
+    }
   }
 
   showError(message:string){
