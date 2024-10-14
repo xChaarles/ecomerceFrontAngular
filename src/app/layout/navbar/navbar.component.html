@@ -24,12 +24,7 @@
             </li>
             @if (isAdmin) {
             <li>
-                <details #adminMenu>
-                    <summary>Admin</summary>
-                    <ul class="z-30">
-                        <li><a href="/admin"></a>All</li>
-                    </ul>
-                </details>
+                <a [routerLink]="['pages/admin/inicio-admin']">Admin</a>
             </li>
             }
         </div>

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -22,8 +22,15 @@ export class UserService {
       return response;
     }catch(error){
       throw error
-    }
-      
+    } 
+  }
+
+  createUser(userData:any, token:string):Observable<any>{
+    const url = `${this.api}/auth/singUp`;
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    });
+    return this.http.post<any>(url, userData, {headers});
   }
 
   //Metodoos de autenticacion

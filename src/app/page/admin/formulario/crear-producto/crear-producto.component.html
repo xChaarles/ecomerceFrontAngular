@@ -1,0 +1,54 @@
+<div class="py-6">
+    <div class="flex bg-white rounded-lg shadow-lg shadow-orange-500 overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+          <div class="w-full p-8 lg:w-1/2">
+              <h2 class="text-2xl font-semibold text-gray-700 text-center">Crear Producto</h2>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">imagenUrl :</label>
+                </div>
+                <input [(ngModel)]="productoData.pimgUrl" name="pimgUrl" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Nombre :</label>
+                </div>
+                <input [(ngModel)]="productoData.pnombre" name="pnombre" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2">Descripcion :</label>
+              <input [(ngModel)]="productoData.pdescripcion" name="pdescripcion" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Precio</label>
+                </div>
+                <input [(ngModel)]="productoData.precio" name="precio" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="number">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Ciudad</label>
+                </div>
+                <input [(ngModel)]="productoData.cantidad" name="cantidad" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="number">
+            </div>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">categoria</label>
+                </div>
+                <input [(ngModel)]="productoData.categoria" name="categoria" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-8">
+                <button class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600" (click)="crearProducto()">Crear</button>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+                <span class="border-b w-1/5 md:w-1/4"></span>
+                <a [routerLink]="['/pages/login']" class="text-xs text-gray-500 uppercase">or login</a>
+                <span class="border-b w-1/5 md:w-1/4"></span>
+            </div>
+        </div>
+        <div class="hidden lg:w-1/2 lg:flex lg:items-center lg:justify-center bg-blue-600">
+            <img src="https://pbs.twimg.com/profile_images/1412502625350676480/VEKgUKGn_400x400.png">
+        </div>
+      </div>
+  </div>
+
+
