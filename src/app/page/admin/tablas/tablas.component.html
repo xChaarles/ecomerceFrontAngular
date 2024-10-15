@@ -1,1 +1,36 @@
-<p>tablas works!</p>
+<section class="bg-transparent">
+    <div class="bg-gray-100 flex flex-col justify-center border-b-2 border-orange-600">
+      <div class="relative py-3 sm:max-w-full sm:mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 lg:pl-20 lg:pr-20 pl-3 pr-3 pb-6 items-center">
+          
+          <!-- Card 1 - Registro -->
+          <div class="text-gray-700 bg-gray-100 w-80 h-20 rounded-xl border-b-2 shadow-card border-orange-600 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow shadow-sm  hover:shadow-lg hover:shadow-orange-500">
+            <a [routerLink]="['/pages/admin/tablas/productolist']" class="flex gap-x-2 h-20 items-center justify-center">
+                <fa-icon [icon]="['fab','dropbox']" class="menu-icon"></fa-icon>
+                <span>Lista Producto</span>
+            </a>
+          </div>
+  
+          <!-- Card 2 - Lista -->
+          <div class="text-gray-700 bg-gray-100 w-80 h-20 rounded-xl border-b-2 shadow-card border-orange-600 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow shadow-sm  hover:shadow-lg hover:shadow-orange-500">
+            <a [routerLink]="['/pages/admin/tablas/categorialist']" class="flex gap-x-10 h-20 items-center justify-center">
+                <fa-icon [icon]="['fas','list']" class="menu-icon"></fa-icon>
+                <span>Lista Categoria</span>
+            </a>
+          </div>
+  
+          <!-- Card 3 - Detalle -->
+          <div class="text-gray-700 bg-gray-100 w-80 h-20 rounded-xl border-b-2 shadow-card border-orange-600 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow shadow-sm  hover:shadow-lg hover:shadow-orange-500">
+            <a [routerLink]="['/pages/admin/tablas/userlist']" class="flex gap-x-10 h-20 items-center justify-center">
+                <fa-icon [icon]="['fas','user']" class="menu-icon"></fa-icon>
+                <span>Lista Usuario</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex border-orange-600 items-center justify-center">
+        <router-outlet />
+      </div>
+</section>
+

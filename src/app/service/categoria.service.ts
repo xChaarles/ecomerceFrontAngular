@@ -18,4 +18,17 @@ export class CategoriaService {
     });
     return this.http.post<any>(url, categoriaData, { headers });
   }
+
+  getAllCategoria():Observable<any>{
+    const url = `${this.apic}/public/get-all-categoria`;
+    return this.http.get<any>(url);
+  }
+
+  getAllCategoriaAdmin(token:string):Observable<any>{
+    const url = `${this.apic}/public/get-all-categoria`;
+    const headers = new HttpHeaders ({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(url, { headers })
+  }
 }

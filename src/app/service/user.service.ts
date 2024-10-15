@@ -33,6 +33,39 @@ export class UserService {
     return this.http.post<any>(url, userData, {headers});
   }
 
+  getAllUser(token:string):Observable<any>{
+    const url = `${this.api}/admin/all-user`;
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    });
+    return this.http.get<any>(url, {headers});
+  }
+
+  getUserById(userId:string, token:string):Observable<any>{
+    const url = `${this.api}/admin/user/${userId}`;
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    });
+    return this.http.get<any>(url, {headers});
+  }
+
+  updateUser(userId:string, userData:any, token:string):Observable<any>{
+    const url = `${this.api}/admin/update-user/${userId}`;
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    });
+    return this.http.put<any>(url, userData, {headers});
+  }
+
+  deleteUser(userId:string, token:string): Observable<any>{
+    const url = `${this.api}/admin/delete-user/${userId}`;
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    });
+    return this.http.delete<any>(url, { headers });
+  }
+
+
   //Metodoos de autenticacion
   logOut(): void{
     if(typeof localStorage !== 'undefined'){

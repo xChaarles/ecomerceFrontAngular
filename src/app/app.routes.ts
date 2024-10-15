@@ -49,13 +49,45 @@ export const routes: Routes = [
                             path: 'crear-user',
                             title: 'Crear User',
                             loadComponent: () => import('./page/admin/formulario/crear-user/crear-user.component')
+                        },
+                        {
+                            path: 'updateUser/:id',
+                            title: 'Update User',
+                            loadComponent: () => import('./page/admin/formulario/update-user/update-user.component')
+                        },
+                        {
+                            path: 'updateProducto/:Pid',
+                            title: 'Update Producto',
+                            loadComponent: () => import('./page/admin/formulario/update-producto/update-producto.component')
+                        },
+                        {
+                            path: 'updateCategoriar/:Cid',
+                            title: 'Update Categoriar',
+                            loadComponent: () => import('./page/admin/formulario/update-categoria/update-categoria.component')
                         }
                     ]
                   },
                   {
                     path: 'tablas',
                     title: 'Tablas',
-                    loadComponent:() => import('./page/admin/tablas/tablas.component')
+                    loadComponent:() => import('./page/admin/tablas/tablas.component'),
+                    children:[
+                        {
+                            path: 'userlist',
+                            title: 'Lista de Usuarios',
+                            loadComponent: () => import('./page/admin/tablas/userlist/userlist.component')
+                        },
+                        {
+                            path: 'productolist',
+                            title: 'Lista de Usuarios',
+                            loadComponent: () => import('./page/admin/tablas/productolist/productolist.component')
+                        },
+                        {
+                            path: 'categorialist',
+                            title: 'Lista de Usuarios',
+                            loadComponent: () => import('./page/admin/tablas/categorialist/categorialist.component')
+                        }
+                    ]
                   }
                 ]
             },

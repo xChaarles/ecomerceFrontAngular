@@ -18,5 +18,18 @@ export class ProductoService {
     return this.http.post<any>(url, producData, {headers});
   }
 
+  getAllProcducto():Observable<any>{
+    const url = `${this.apip}/public/all-producto`;
+    return this.http.get<any>(url);
+  }
+
+  getAllProductoAdmin(token:string):Observable<any>{
+    const url = `${this.apip}/public/all-producto`;
+    const headers = new HttpHeaders ({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(url, { headers })
+  }
+
 
 }
