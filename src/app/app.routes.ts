@@ -16,8 +16,8 @@ export const routes: Routes = [
                 loadComponent: () => import('./page/login/login.component')
             },
             {
-                path: 'home',
-                title: 'Home',
+                path: 'inicio',
+                title: 'Inicio',
                 loadComponent: () => import('./page/inicio/inicio.component')
             },
             {
@@ -93,14 +93,14 @@ export const routes: Routes = [
             },
             {
                 path: '',
-                redirectTo: 'pages/home',
+                redirectTo: 'pages/inicio',
                 pathMatch: 'full'            
             }
         ]
     },
     {
         path: '',
-        redirectTo: '/pages/home',
+        redirectTo: '/pages/inicio',
         pathMatch: 'full'
     }
 ];

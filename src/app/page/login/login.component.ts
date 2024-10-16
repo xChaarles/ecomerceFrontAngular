@@ -34,7 +34,7 @@ export default class LoginComponent {
         localStorage.setItem('role', response.role)   //almacena el tipo de rol si es usuario o admin
         localStorage.setItem('img_url', response.img_url || '')
         
-        const redirecto = 'pages/home';
+        const redirecto = 'pages/inicio';
         console.log('Redirigiendo a:',redirecto) 
         if(redirecto){
         this.router.navigate([redirecto]).then(() => {

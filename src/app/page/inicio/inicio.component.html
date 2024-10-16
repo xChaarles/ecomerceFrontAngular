@@ -1,1 +1,107 @@
-<p>inicio works!</p>
+<!-- Carrusel de productos -->
+<div class="relative w-full h-screen overflow-hidden">
+    <!-- Carrusel -->
+    <div class="absolute w-full h-[600px] top-0 left-0">
+        @for (producto of productos.slice(-5); track producto.id) {
+        <div [class]="$index === currentSlide ? 'active-slide w-full h-[600px]' : 'hidden-slide w-full h-[600px]'">
+        <img [src]="producto.pimgUrl" alt="{{producto.pnombre}}" class="w-full h-[600px] object-cover">
+  
+        <!-- Contenido sobre la imagen -->
+        <div class="w-full flex items-center absolute bottom-0 p-4 text-white backdrop-blur-lg rounded-b-3xl justify-between">
+            <div class="flex flex-col text-xl">
+                <div>
+                    <h2 class="text-6xl font-bold text-gray-400">{{ producto.pnombre }}</h2>
+                </div>
+                <div>
+                    <span class="text-gray-600 rounded-3xl px-3 py-1">
+                        {{ producto.categoria }}
+                    </span>
+                </div>
+            </div>
+            <div class="items-center">
+                <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Detalles</a>
+            </div>
+            </div>
+        </div>
+        }
+        <!-- Indicadores -->
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        @for (producto of productos.slice(-5); track $index) {
+        <span
+            [class]="currentSlide === $index ? 'indicator w-3 h-3 bg-orange-500 rounded-full cursor-pointer' : 'indicator w-3 h-3 bg-gray-300 rounded-full cursor-pointer'"
+            (click)="goToSlide($index)">
+        </span>
+        }
+    </div>
+    </div>
+</div>
+<div class="container mx-auto mb-16">
+    <!--- Content --->
+    <div class="w-full">
+        <h2 class="flex text-2xl text-gray-500 justify-center">Productos</h2>
+        <h2 class="flex text-2xl text-gray-500 justify-star ml-6">Tecnologia</h2>
+        <div class="flex overflow-x-auto overflow-hidden py-4 px-2 mb-10">
+        <!--- Card --->
+        @for (item of productos; track $index) {
+            @if (item.categoria == "Tecnologia") {
+                <div class="flex-shrink-0 h-80 rounded-3xl relative mb-10 m-4">
+                    <div class="rounded-3xl relative shadow-lg shadow-orange-500">  
+                        <img class="w-[500px] h-[300px] rounded-3xl cursor-pointer" 
+                            [src]="item.pimgUrl" 
+                            (click)="detalleProducto(item.id)"  alt="img">
+                            <!--- text --->
+                        <div class="w-full absolute bottom-0 p-4 text-gray-500 backdrop-blur-lg rounded-b-3xl">
+                            <div class="flex justify-between text-xl">
+                            <h1 [routerLink]="['/WebAnime/detailanime', item.id]">{{item.pnombre}}</h1>
+                            <span class="flex">
+                                <p>$ {{item.precio}}</p>
+                            </span>
+                            </div>
+                                <p class="text-base">{{item.categoria}}</p>
+                        </div>
+                    </div>
+                    <div class="flex pt-4 gap-x-4 justify-center pb-10">
+                        <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Detalles</a>
+                        <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Comprar
+                            <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
+                        </a>
+                    </div>
+                </div>
+            }
+      }
+      </div>
+
+        <h2 class="flex text-2xl text-gray-500 justify-star ml-6">Calzado</h2>
+        <div class="flex overflow-x-auto overflow-hidden py-4 px-2">
+        <!--- Card --->
+        @for (item of productos; track $index) {
+            @if (item.categoria == "Calzado") {
+                <div class="flex-shrink-0 h-80 rounded-3xl relative mb-10 m-4">
+                    <div class="rounded-3xl relative shadow-lg shadow-orange-500">  
+                        <img class="w-[500px] h-[300px] rounded-3xl cursor-pointer" 
+                            [src]="item.pimgUrl" 
+                            (click)="detalleProducto(item.id)"  alt="img">
+                            <!--- text --->
+                        <div class="w-full absolute bottom-0 p-4 text-gray-500 backdrop-blur-lg rounded-b-3xl">
+                            <div class="flex justify-between text-xl">
+                            <h1 [routerLink]="['/WebAnime/detailanime', item.id]">{{item.pnombre}}</h1>
+                            <span class="flex">
+                                <p>$ {{item.precio}}</p>
+                            </span>
+                            </div>
+                                <p class="text-base">{{item.categoria}}</p>
+                        </div>
+                    </div>
+                    <div class="flex pt-4 gap-x-4 justify-center pb-10">
+                        <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Detalles</a>
+                        <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Comprar
+                            <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
+                        </a>
+                    </div>
+                </div>
+            }
+      }
+      </div>
+    </div>
+  </div>
+    
