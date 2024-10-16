@@ -31,4 +31,13 @@ export class CategoriaService {
     });
     return this.http.get<any>(url, { headers })
   }
+
+  deleteCategoria(categoriaId:string, token:string):Observable<any>{
+    const url = `${this.apic}/admin/delete-categoria/${categoriaId}`;
+    const headers = new HttpHeaders ({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<any>(url, {headers})
+  }
+
 }

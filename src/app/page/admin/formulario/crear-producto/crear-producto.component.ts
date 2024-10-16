@@ -47,7 +47,7 @@ export default class CrearProductoComponent implements OnInit {
 
     this.productoService.crearProducto(this.productoData, token).subscribe(dato =>{
       console.log(dato)
-      this.router.navigate(['pages/admin/formulario'])
+      this.router.navigate(['pages/admin/tablas/productolist'])
     });
     
   }

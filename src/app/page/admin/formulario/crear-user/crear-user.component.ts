@@ -58,7 +58,7 @@ export default class CrearUserComponent {
 
     this.userService.createUser(this.formData, token).subscribe(dato =>{
       console.log(dato)
-      this.router.navigate(['pages/admin/formulario'])
+      this.router.navigate(['pages/admin/tablas/userlist'])
     })
 
   }

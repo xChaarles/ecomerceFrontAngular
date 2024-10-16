@@ -31,5 +31,13 @@ export class ProductoService {
     return this.http.get<any>(url, { headers })
   }
 
+  deleteProducto(productoId:string, token:string):Observable<any>{
+    const url = `${this.apip}/admin/delete-producto/${productoId}`;
+    const headers = new HttpHeaders ({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<any>(url, {headers});
+  }
+
 
 }

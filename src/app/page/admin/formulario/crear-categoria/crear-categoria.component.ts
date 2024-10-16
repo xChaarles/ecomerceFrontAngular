@@ -42,7 +42,7 @@ export default class CrearCategoriaComponent implements OnInit{
     this.categoriaService.crearCategoria(this.categoriaData, token).subscribe(
       (dato) => {
       console.log(dato)
-      this.router.navigate(['pages/admin/formulario']);
+      this.router.navigate(['pages/admin/tablas/categorialist']);
       },(error) => {
         this.showError("Error al crear la categoría. Verifica los datos.");
         console.error(error);
