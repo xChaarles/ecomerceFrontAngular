@@ -17,6 +17,8 @@ export default class ProductoxCategoriaComponent implements OnInit {
   producCategory: any [] = [];
   nombreCategoria:any;
 
+
+
   constructor(private categoriaService: CategoriaService,
               private productoService:ProductoService,
               private router: Router,
