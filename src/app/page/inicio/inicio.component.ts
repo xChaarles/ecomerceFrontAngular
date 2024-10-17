@@ -61,7 +61,7 @@ export default class InicioComponent implements OnInit {
   }
 
   detalleProducto(productoId: string){
-    this.router.navigate(['/pages/inicio', productoId])
+    this.router.navigate(['/pages/detallePro', productoId])
   }
 
 }

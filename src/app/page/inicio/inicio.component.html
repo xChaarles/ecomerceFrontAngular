@@ -1,10 +1,10 @@
 <!-- Carrusel de productos -->
 <div class="relative w-full h-screen overflow-hidden">
     <!-- Carrusel -->
-    <div class="absolute w-full h-[600px] top-0 left-0">
+    <div class="absolute w-full h-[700px] top-0 left-0">
         @for (producto of productos.slice(-5); track producto.id) {
-        <div [class]="$index === currentSlide ? 'active-slide w-full h-[600px]' : 'hidden-slide w-full h-[600px]'">
-        <img [src]="producto.pimgUrl" alt="{{producto.pnombre}}" class="w-full h-[600px] object-cover">
+        <div [class]="$index === currentSlide ? 'active-slide w-full h-[700px]' : 'hidden-slide w-full h-[700px]'">
+        <img [src]="producto.pimgUrl" alt="{{producto.pnombre}}" class="w-full h-[700px] object-cover">
   
         <!-- Contenido sobre la imagen -->
         <div class="w-full flex items-center absolute bottom-0 p-4 text-white backdrop-blur-lg rounded-b-3xl justify-between">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="items-center">
-                <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Detalles</a>
+                <a (click)="detalleProducto(producto.id)"  class="bg-orange-500 text-white py-3 px-6 rounded-lg">Detalles</a>
             </div>
             </div>
         </div>
@@ -45,14 +45,13 @@
         @for (item of productos; track $index) {
             @if (item.categoria == "Tecnologia") {
                 <div class="flex-shrink-0 h-80 rounded-3xl relative mb-10 m-4">
-                    <div class="rounded-3xl relative shadow-lg shadow-orange-500">  
+                    <div class="rounded-3xl relative shadow-lg shadow-gray-600">  
                         <img class="w-[500px] h-[300px] rounded-3xl cursor-pointer" 
-                            [src]="item.pimgUrl" 
-                            (click)="detalleProducto(item.id)"  alt="img">
+                            [src]="item.pimgUrl" alt="img">
                             <!--- text --->
-                        <div class="w-full absolute bottom-0 p-4 text-gray-500 backdrop-blur-lg rounded-b-3xl">
+                        <div class="w-full absolute bottom-0 p-4 text-gray-4    00 backdrop-blur-lg rounded-b-3xl">
                             <div class="flex justify-between text-xl">
-                            <h1 [routerLink]="['/WebAnime/detailanime', item.id]">{{item.pnombre}}</h1>
+                            <h1>{{item.pnombre}}</h1>
                             <span class="flex">
                                 <p>$ {{item.precio}}</p>
                             </span>
@@ -61,8 +60,8 @@
                         </div>
                     </div>
                     <div class="flex pt-4 gap-x-4 justify-center pb-10">
-                        <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Detalles</a>
-                        <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Comprar
+                        <a (click)="detalleProducto(item.id)" class="bg-gray-600 text-white py-3 px-6 rounded-lg">Detalles</a>
+                        <a href="#" class="bg-gray-600 text-white py-3 px-6 rounded-lg">Comprar
                             <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
                         </a>
                     </div>
@@ -77,14 +76,13 @@
         @for (item of productos; track $index) {
             @if (item.categoria == "Calzado") {
                 <div class="flex-shrink-0 h-80 rounded-3xl relative mb-10 m-4">
-                    <div class="rounded-3xl relative shadow-lg shadow-orange-500">  
+                    <div class="rounded-3xl relative shadow-lg shadow-gray-600">  
                         <img class="w-[500px] h-[300px] rounded-3xl cursor-pointer" 
-                            [src]="item.pimgUrl" 
-                            (click)="detalleProducto(item.id)"  alt="img">
+                            [src]="item.pimgUrl" alt="img">
                             <!--- text --->
-                        <div class="w-full absolute bottom-0 p-4 text-gray-500 backdrop-blur-lg rounded-b-3xl">
+                        <div class="w-full absolute bottom-0 p-4 text-gray-600 backdrop-blur-lg rounded-b-3xl">
                             <div class="flex justify-between text-xl">
-                            <h1 [routerLink]="['/WebAnime/detailanime', item.id]">{{item.pnombre}}</h1>
+                            <h1>{{item.pnombre}}</h1>
                             <span class="flex">
                                 <p>$ {{item.precio}}</p>
                             </span>
@@ -93,8 +91,8 @@
                         </div>
                     </div>
                     <div class="flex pt-4 gap-x-4 justify-center pb-10">
-                        <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Detalles</a>
-                        <a href="#" class="bg-orange-500 text-white py-3 px-6 rounded-lg">Comprar
+                        <a (click)="detalleProducto(item.id)" class="bg-gray-600 text-white py-3 px-6 rounded-lg">Detalles</a>
+                        <a href="#" class="bg-gray-600 text-white py-3 px-6 rounded-lg">Comprar
                             <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
                         </a>
                     </div>

@@ -20,12 +20,12 @@ export class CategoriaService {
   }
 
   getAllCategoria():Observable<any>{
-    const url = `${this.apic}/public/get-all-categoria`;
+    const url = `${this.apic}/public/all-categoria`;
     return this.http.get<any>(url);
   }
 
   getAllCategoriaAdmin(token:string):Observable<any>{
-    const url = `${this.apic}/public/get-all-categoria`;
+    const url = `${this.apic}/public/all-categoria`;
     const headers = new HttpHeaders ({
       'Authorization': `Bearer ${token}`
     });
@@ -38,6 +38,22 @@ export class CategoriaService {
       'Authorization': `Bearer ${token}`
     });
     return this.http.delete<any>(url, {headers})
+  }
+
+  getCategoriaByIdaAdmin(categoriaId:string, token:string):Observable<any>{
+    const url = `${this.apic}/public/categoriaProducto/${categoriaId}`;
+    const headers = new HttpHeaders ({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(url, {headers});
+  }
+
+  updateCategoria(categoriaId:string, categoriaData:any, token:string):Observable<any>{
+    const url = `${this.apic}/admin/update-categoria/${categoriaId}`;
+    const headers = new HttpHeaders ({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put<any>(url, categoriaData, {headers});
   }
 
 }

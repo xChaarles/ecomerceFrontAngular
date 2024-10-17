@@ -1,1 +1,20 @@
-<p>update-categoria works!</p>
+<div class="py-6">
+    <div class="flex bg-white rounded-lg shadow-lg shadow-gray-600 overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+          <div class="w-full p-8 lg:w-1/2">
+              <h2 class="text-2xl font-semibold text-gray-700 text-center">Crear Usuario</h2>
+            <div class="mt-4">
+                <div class="flex justify-between">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
+                </div>
+                <input [value]="categoriaData.categoriaProducto?.cnombre"
+                [(ngModel)]="categoriaData.cnombre" name="nombre" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+            </div>
+            <div class="mt-8">
+                <button class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600" (click)="updateCategoria()">Crear</button>
+            </div>
+        </div>
+        <div class="hidden lg:w-1/2 lg:flex lg:items-center lg:justify-center bg-current">
+            <img src="https://cdn.create.vista.com/api/media/medium/470987420/stock-vector-add-user-gold-plated-metalic-icon-logo-vector?token=" class="w-96">
+        </div>
+      </div>
+  </div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserService } from '../../service/user.service';
+import { CategoriaService } from '../../service/categoria.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,10 +18,13 @@ export class NavbarComponent implements OnInit {
   isAdmin:boolean = false;
   isUser:boolean = false;
 
+  categorias: any [] = [];
+
   img_url: string | null = null;
 
   constructor(private userService:UserService,
-              private router:Router){}
+              private router:Router,
+              private categoriaService: CategoriaService){}
 
   ngOnInit(): void {
     if (typeof window !== 'undefined' && localStorage) {
@@ -30,7 +34,22 @@ export class NavbarComponent implements OnInit {
   
       // Obtener la imagen del usuario si existe en localStorage
       this.img_url = localStorage.getItem('img_url');  // Verifica si img_url es correcto
+      this.getAllCategorias();
     }
+  }
+
+  getAllCategorias(){
+    this.categoriaService.getAllCategoria().subscribe(
+      dato => {
+        this.categorias = dato.categoriaProductoList
+      }
+    )
+  }
+
+  productoCategoria(categoria:string){
+    this.router.navigate(['/pages/producCategory', categoria]).then (() =>{
+      window.location.reload();
+    })
   }
 
   logout(): void{

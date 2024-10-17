@@ -21,6 +21,16 @@ export const routes: Routes = [
                 loadComponent: () => import('./page/inicio/inicio.component')
             },
             {
+                path: 'producCategory/:nombre',
+                title: 'Producto x Categoria',
+                loadComponent: () => import('./page/productox-categoria/productox-categoria.component')
+            },
+            {
+                path: 'detallePro/:id',
+                title: 'Producto x Categoria',
+                loadComponent: () => import('./page/producto-detalles/producto-detalles.component')
+            },
+            {
                 path:'admin',
                 title: 'Admin',
                 loadComponent: () => import('./page/admin/admin.component'),
@@ -61,7 +71,7 @@ export const routes: Routes = [
                             loadComponent: () => import('./page/admin/formulario/update-producto/update-producto.component')
                         },
                         {
-                            path: 'updateCategoriar/:Cid',
+                            path: 'updateCategoria/:Cid',
                             title: 'Update Categoriar',
                             loadComponent: () => import('./page/admin/formulario/update-categoria/update-categoria.component')
                         }

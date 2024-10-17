@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ProductoService } from '../../../../service/producto.service';
 import { FormsModule } from '@angular/forms';
+import { CategoriaService } from '../../../../service/categoria.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -21,12 +22,14 @@ export default class CrearProductoComponent implements OnInit {
     categoria:''
   };
 
+  categoria: any [] = [];
+
   errorMessage: string = '';
 
-  constructor(private productoService: ProductoService, private router:Router){}
+  constructor(private productoService: ProductoService, private router:Router,private categoriaService: CategoriaService){}
 
   ngOnInit(): void {
-    
+    this.getAllCategoria()
   }
 
   crearProducto(){
@@ -35,7 +38,7 @@ export default class CrearProductoComponent implements OnInit {
         this.showError("Por Favor llene todos los campos");
       }
 
-    const confirmRegistration = confirm('¿Estás seguro de que deseas registrar a este anime?');
+    const confirmRegistration = confirm('¿Estás seguro de que deseas registrar este producto?');
     if (!confirmRegistration) {
       return;
     }
@@ -50,6 +53,15 @@ export default class CrearProductoComponent implements OnInit {
       this.router.navigate(['pages/admin/tablas/productolist'])
     });
     
+  }
+
+  getAllCategoria(){
+    const token: any = localStorage.getItem('token');
+    this.categoriaService.getAllCategoriaAdmin(token).subscribe(
+      dato => {
+        this.categoria = dato.categoriaProductoList
+      }
+    )
   }
 
   showError(message: string) {

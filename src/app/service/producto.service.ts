@@ -39,5 +39,30 @@ export class ProductoService {
     return this.http.delete<any>(url, {headers});
   }
 
+  getProductoByIdAdmin(productoId:string, token:string):Observable<any>{
+    const url = `${this.apip}/public/producto/${productoId}`;
+    const headers = new HttpHeaders ({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(url, {headers})
+  }
+
+  getProductoById(productoId:string):Observable<any>{
+    const url = `${this.apip}/public/producto/${productoId}`;
+    return this.http.get<any>(url)
+  }
+
+  updateProducto ( productoId:string, producData:string, token:string): Observable<any>{
+    const url = `${this.apip}/admin/update-producto/${productoId}`;
+    const headers = new HttpHeaders ({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put<any>(url, producData ,{ headers});
+  }
+
+  getProductosXCategoria(categoriaNombre:string ):Observable<any[]>{
+    const url = `${this.apip}/public/categoria/${categoriaNombre}`
+    return this.http.get<any[]>(url)
+  }
 
 }

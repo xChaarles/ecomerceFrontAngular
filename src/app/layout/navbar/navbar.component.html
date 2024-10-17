@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 border-b border-orange-500">
+<div class="navbar bg-base-100 border-b border-gray-600">
     <div class="navbar-start">
         <div class="dropdown">
             <a class="btn btn-ghost text-xl">
@@ -16,9 +16,11 @@
             </li>
             <li>
                 <details #productsMenu>
-                    <summary>Productos</summary>
+                    <summary>Categorias</summary>
                     <ul class="z-30">
-                        <li><a href="/products"></a>All</li>
+                        @for (item of categorias; track $index) {
+                            <li><a (click)="productoCategoria(item.cnombre)" >{{ item.cnombre }}</a></li>
+                        }
                     </ul>
                 </details>
             </li>
