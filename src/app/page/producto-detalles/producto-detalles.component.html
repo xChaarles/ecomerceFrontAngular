@@ -37,11 +37,15 @@
         <div>
             <h3 class="text-xl font-semibold mb-2 text-gray-400">Precio</h3>
             <p class="text-gray-500">$ {{ productoData.precio }}</p>
+            
         </div>
-        <div>
+        <div class="">
             <h3 class="text-xl font-semibold mb-2 text-gray-400">Cantidad</h3>
-            <p class="text-gray-500 flex justify-end">{{ productoData.cantidad }}</p>
-        </div>
+            <div class="flex gap-x-4">
+              <input [value]="productoData.cantidad" type="number" class=" bg-gray-100 text-gray-700 w-16 focus:outline-none focus:shadow-outline border border-gray-400 rounded py-2 px-4 appearance-none">
+              <p class="text-gray-500 flex justify-end items-center">Stock : {{ productoData.cantidad }}</p>
+            </div>
+          </div>
       </div>
     </div>
 </div>

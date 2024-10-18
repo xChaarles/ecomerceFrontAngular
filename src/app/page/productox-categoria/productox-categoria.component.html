@@ -4,10 +4,10 @@
     </div>
     <!--- Content --->
     <div class="w-full">
-      <div class="grid grid-cols-1 md:grid-cols-4 py-4 px-2 gap-y-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 py-4 px-10 mb-2 gap-y-6">
         <!--- Card --->
         @for (item of producCategory; track $index) {
-        <div class="flex-shrink-0 h-64 m-3 rounded-3xl relative" style="box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);-webkit-box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);-moz-box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);">
+        <div class="flex-shrink-0 lg:w-[400px] h-64 m-3 rounded-3xl relative" style="box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);-webkit-box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);-moz-box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);">
             <img class="w-[400px] h-64 rounded-3xl cursor-pointer" [src]="item.pimgUrl" alt="img">
             <!--- text --->
             <div class="w-full absolute bottom-0 p-4 text-gray-900 backdrop-blur-lg rounded-b-3xl">
@@ -18,7 +18,7 @@
                     </span>
                 </div>
             </div>        
-            <div class="flex pt-10 gap-x-4 justify-center">
+            <div class="flex pt-6 gap-x-4 justify-center">
                 <a (click)="detalleProducto(item.id)" class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-500">Detalles</a>
                 <a href="#" class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-500">Añadir al Carrito
                     <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
