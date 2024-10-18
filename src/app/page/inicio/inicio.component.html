@@ -61,7 +61,7 @@
                     </div>
                     <div class="flex pt-4 gap-x-4 justify-center pb-10">
                         <a (click)="detalleProducto(item.id)" class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-500">Detalles</a>
-                        <a href="#" class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-500">Añadir al Carrito
+                        <a [routerLink]="['/pages/carrito']" class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-500">Añadir al Carrito
                             <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
                         </a>
                     </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="flex pt-4 gap-x-4 justify-center">
                         <a (click)="detalleProducto(item.id)" class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-500">Detalles</a>
-                        <a href="#" class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-500">Añadir al Carrito
+                        <a class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-500">Añadir al Carrito
                             <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
                         </a>
                     </div>

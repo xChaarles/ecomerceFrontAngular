@@ -31,6 +31,11 @@ export const routes: Routes = [
                 loadComponent: () => import('./page/producto-detalles/producto-detalles.component')
             },
             {
+                path: 'carrito',
+                title: 'Carrito',
+                loadComponent: () => import('./page/carrito/carrito.component')
+            },
+            {
                 path:'admin',
                 title: 'Admin',
                 loadComponent: () => import('./page/admin/admin.component'),
