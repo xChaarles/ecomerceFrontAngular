@@ -33,6 +33,7 @@ export default class LoginComponent {
         localStorage.setItem('token', response.token) //almacena el token en el localstorage de la pagina
         localStorage.setItem('role', response.role)   //almacena el tipo de rol si es usuario o admin
         localStorage.setItem('img_url', response.img_url || '')
+        localStorage.setItem('userId', response.id)
         
         const redirecto = 'pages/inicio';
         console.log('Redirigiendo a:',redirecto) 

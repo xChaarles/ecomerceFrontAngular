@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit {
     this.isAuthenticated = false;
     this.isAdmin = false;
     this.isUser = false;
-    this.router.navigate(['pages/home']).then (() => {
+    this.router.navigate(['pages/inicio']).then (() => {
       window.location.reload();
     });
   }
