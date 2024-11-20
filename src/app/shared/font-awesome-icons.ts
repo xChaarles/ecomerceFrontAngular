@@ -1,4 +1,4 @@
-import { faCartShopping, faClipboard, faFile, faHome, faList, faTable, faTruckFast, faUser, faWallet } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faClipboard, faFile, faHome, faList, faMoneyBill, faMoneyBill1Wave, faTable, faTruckFast, faUser, faWallet } from "@fortawesome/free-solid-svg-icons";
 import { faDropbox, faFacebook, faInstagram, faProductHunt, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { IconDefinition } from "@fortawesome/angular-fontawesome";
 
@@ -17,5 +17,6 @@ export const fontAwesomeIcons: IconDefinition[] = [
     faProductHunt,
     faList,
     faDropbox,
-    faClipboard
+    faClipboard,
+    faMoneyBill1Wave
 ];

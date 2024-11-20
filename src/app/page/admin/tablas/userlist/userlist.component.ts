@@ -29,7 +29,7 @@ export default class UserlistComponent implements OnInit {
     )
   }
 
-  deleteUser(userId:string){
+  deleteUser(userId: string){
     const confirmDelete = confirm("Estas seguro de Eliminar este Usuario?")
     if(confirmDelete){
     const token:any = localStorage.getItem('token');

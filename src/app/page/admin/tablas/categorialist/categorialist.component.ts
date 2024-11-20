@@ -29,7 +29,7 @@ export default class CategorialistComponent implements OnInit {
   }
 
   deleteCategoria(categoriaId:string){
-    const confirmDelete = confirm("Estas seguro de Eliminar este Usuario?")
+    const confirmDelete = confirm("Estas seguro de Eliminar esta Categoria?")
     if(confirmDelete){
     const token: any = localStorage.getItem('token');
     this.categoriaService.deleteCategoria(categoriaId, token).subscribe(

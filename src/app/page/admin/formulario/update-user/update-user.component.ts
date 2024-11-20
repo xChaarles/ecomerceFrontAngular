@@ -44,7 +44,7 @@ export default class UpdateUserComponent implements OnInit {
   }
 
   updateUser(){
-    const confirmUpdate = confirm("Deseas Actualizar este usuario");
+    const confirmUpdate = confirm("Deseas Actualizar este usuario?");
     if(!confirmUpdate) return
 
     const token = localStorage.getItem('token')

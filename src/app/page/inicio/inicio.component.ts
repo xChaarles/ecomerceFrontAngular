@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { ProductoService } from '../../service/producto.service';
 import { Subscription } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CarritoService } from '../../service/carrito.service';
 
 @Component({
   selector: 'app-inicio',
@@ -17,10 +18,13 @@ export default class InicioComponent implements OnInit {
 
   productos : any [] = [];
   currentSlide = 0;
+  cantidad = 1
   private intervalId: any;
   private productoSubscription: Subscription;
 
-  constructor(private productoService:ProductoService,private router: Router){}
+  constructor(private productoService:ProductoService,private router: Router, 
+              private carritoService: CarritoService){}
+
   ngOnInit() {
     this.getAllProductos();
 
@@ -62,6 +66,25 @@ export default class InicioComponent implements OnInit {
 
   detalleProducto(productoId: string){
     this.router.navigate(['/pages/detallePro', productoId])
+  }
+
+  addCarrito(productoId :string) {    
+    const token: any = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+
+    if (userId && productoId && this.cantidad) { 
+      this.carritoService.addCarrito(productoId, this.cantidad, userId, token).subscribe(
+        dato => {
+          console.log(dato);
+          this.router.navigate(['/pages/carrito']);
+        },
+        error => {
+          console.error('Error al añadir al carrito:', error); // Log de error
+        }
+      );
+    } else {
+      console.error('Faltan parámetros necesarios para añadir al carrito');
+    }
   }
 
 }

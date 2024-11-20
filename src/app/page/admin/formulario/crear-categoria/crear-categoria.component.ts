@@ -29,7 +29,7 @@ export default class CrearCategoriaComponent implements OnInit{
        return;
     }
 
-    const confirmRegistration = confirm('¿Estás seguro de que deseas registrar a este anime?');
+    const confirmRegistration = confirm('¿Estás seguro de que deseas registrar a esta categoria?');
     if (!confirmRegistration) {
       return;
     }

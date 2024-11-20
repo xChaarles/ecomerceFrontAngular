@@ -31,7 +31,7 @@ export default class ProductolistComponent implements OnInit {
   }
 
   deleteProducto(productoId: string){
-    const confirmDelete = confirm("Estas seguro de Eliminar este Usuario?")
+    const confirmDelete = confirm("Estas seguro de Eliminar este Producto?")
     if(confirmDelete){
     const token:any = localStorage.getItem('token');
     this.productoService.deleteProducto(productoId, token).subscribe(dato =>{

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenService } from '../../service/orden.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DetalleOrdenService } from '../../service/detalle-orden.service';
 import { CarritoService } from '../../service/carrito.service';
 
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.scss'
 })
@@ -36,6 +36,7 @@ export default class CarritoComponent implements OnInit {
       this.detalleCarrito = dato.detalles
       console.log(this.detalleCarrito)
       this.user = dato.userDTO
+      console.log(this.user)
     })
   }
 
@@ -45,7 +46,7 @@ export default class CarritoComponent implements OnInit {
     const token: any = localStorage.getItem('token');
     console.log(token)
 
-    const confirmdelte = confirm('¿Estás seguro de que deseas registrar a este anime?');
+    const confirmdelte = confirm('¿Estás seguro de que deseas quitar este producto?');
     if (!confirmdelte) {
       return;
     }
