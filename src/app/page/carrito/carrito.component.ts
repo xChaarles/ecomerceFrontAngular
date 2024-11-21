@@ -27,16 +27,12 @@ export default class CarritoComponent implements OnInit {
 
   getCarrito(){
     this.userId = localStorage.getItem('userId');
-    console.log(this.userId);
     const token: any = localStorage.getItem('token');
-    console.log(token)
 
     this.CarritoService.getCarritoPorUser(this.userId, token).subscribe( dato => {
       this.carrito = dato;
       this.detalleCarrito = dato.detalles
-      console.log(this.detalleCarrito)
       this.user = dato.userDTO
-      console.log(this.user)
     })
   }
 

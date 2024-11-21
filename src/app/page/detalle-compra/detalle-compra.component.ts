@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductoService } from '../../service/producto.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CarritoService } from '../../service/carrito.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EpaycoService } from '../../service/epayco.service';
 
 @Component({
   selector: 'app-detalle-compra',
@@ -19,8 +19,8 @@ export default class DetalleCompraComponent implements OnInit {
   detalleCarrito: any [] = [];
 
   constructor(private CarritoService:CarritoService,
-              private router:Router,
-              private route:ActivatedRoute){}
+              private epaycoService:EpaycoService
+            ){}
   
     ngOnInit(): void {
     this.getCarrito();
@@ -28,16 +28,37 @@ export default class DetalleCompraComponent implements OnInit {
 
   getCarrito(){
     this.userId = localStorage.getItem('userId');
-    console.log(this.userId);
     const token: any = localStorage.getItem('token');
-    console.log(token)
 
     this.CarritoService.getCarritoPorUser(this.userId, token).subscribe( dato => {
       this.carrito = dato;
       this.detalleCarrito = dato.detalles
-      console.log(this.detalleCarrito)
       this.user = dato.userDTO
     })
   }
+
+  pagar(): void {
+
+    if (!this.carrito || typeof this.carrito.totalAcumulado === 'undefined') {
+      console.error('El total acumulado no está definido o carrito es nulo.');
+      return;
+    }
+
+    const data = {
+      name: this.user.nombre,
+      apellido: this.user.apellido,
+      telefono: this.user.numeroContacto,
+      descripcion: 'Pago de productos del carrito',
+      currency: 'COP',
+      amount: this.carrito.totalAcumulado, // Asegura un formato válido con dos decimales.
+      tax_base: '0',
+      tax: '0',
+      country:'CO',
+      lang: 'es'
+    }
+
+    this.epaycoService.realizarPago(data)
+  }
+  
 
 }
