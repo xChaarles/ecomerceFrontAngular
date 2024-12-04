@@ -1,0 +1,59 @@
+<div class="flex justify-center">
+  <div class="flex flex-col items-center p-6 gap-5">
+    <!-- Procesando Transacción -->
+    <div *ngIf="!status" class="loading-message flex justify-center">
+      <h1 class="text-xl font-medium text-gray-800">Procesando Transacción...</h1>
+    </div>
+
+    <!-- Confirmando Compra y Mostrando Detalles -->
+    <div *ngIf="status === 'Correcto'" class="transaction-details w-full flex flex-col items-center">
+      <h1 class="text-xl font-medium text-gray-800">{{ mensaje }}</h1>
+      <h3 class="text-lg font-medium text-gray-700 mt-2">Confirmando compra...</h3>
+
+      <!-- Tabla de Detalles -->
+      <div class="w-full mt-5 rounded-lg">
+        <table class="table-auto min-w-full rounded-lg border border-gray-300">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+              <th class="p-4 text-left">Detalles de la Compra:</th>
+              <td class="p-4">Valor</td>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-300 bg-white">
+            <tr>
+              <th class="p-4 text-left text-gray-700">Descripción:</th>
+              <td class="p-4 text-gray-900">{{ descripcion }}</td>
+            </tr>
+            <tr>
+              <th class="p-4 text-left text-gray-700">Número de Orden:</th>
+              <td class="p-4 text-gray-900">{{ numeroOrden }}</td>
+            </tr>
+            <tr>
+              <th class="p-4 text-left text-gray-700">Fecha:</th>
+              <td class="p-4 text-gray-900">{{ transactionDate }}</td>
+            </tr>
+            <tr>
+              <th class="p-4 text-left text-gray-700">Valor:</th>
+              <td class="p-4 text-gray-900"> $ {{ amount }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Resultado Final -->
+    <div *ngIf="status === 'Correcto'" class="result-message flex justify-center mt-5">
+      <p class="text-lg font-semibold text-gray-900">
+        {{ respuesta === 'Aceptada' ? 'Compra Aceptada' : 'Compra Rechazada' }}
+      </p>
+    </div>
+
+    <!-- Error en la Transacción -->
+     @if(statusCode == 500){
+      <div class="error-message">
+        <p class="text-red-500 font-semibold">Error: {{ mensaje }}</p>
+      </div>
+     }
+    
+  </div>
+</div>

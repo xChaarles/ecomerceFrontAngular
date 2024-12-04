@@ -56,7 +56,7 @@
                 @if (isAuthenticated){
                 <li>
                     <button [routerLink]="['pages/singUp']"
-                    class="link">perfil</button>
+                    class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Mis Compras</button>
                 </li>
                 @if (isAuthenticated) {
                     <button (click)="logout()"
@@ -72,4 +72,3 @@
         </div>
     </div>
 </div>
-
