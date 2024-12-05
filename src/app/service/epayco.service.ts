@@ -10,8 +10,6 @@ declare var ePayco: any;
 export class EpaycoService {
 
   private publicKey = '';
-
-
   constructor(private http: HttpClient) { }
 
   realizarPago(data: any): void {

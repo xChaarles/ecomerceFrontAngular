@@ -17,4 +17,12 @@ export class DetalleOrdenService {
     });
     return this.http.get<any>(url, { headers });
   }
+
+  getDetalleOrdenUser(ordenId:string, token:string):Observable<any>{
+    const url = `${this.apio}/user/detalle-orden/${ordenId}`;
+    const headers = new HttpHeaders ({
+      'Authorization' : `Bearer ${token}`
+    });
+    return this.http.get<any>(url, {headers})
+  }
 }

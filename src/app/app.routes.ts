@@ -46,6 +46,21 @@ export const routes: Routes = [
                 loadComponent: () => import('./page/response/response.component')
             },
             {
+                path: 'perfil',
+                title: 'perfil',
+                loadComponent: () => import('./page/perfil/perfil.component'),
+            },
+            {
+                path: 'misCompras',
+                title: 'Mis Compras',
+                loadComponent: () => import('./page/mis-compras/mis-compras.component'),
+            },
+            {
+                path: 'detalleOrden/:id',
+                title: 'Detalle Orden',
+                loadComponent: () => import('./page/detalle-orden/detalle-orden.component')
+            },
+            {
                 path:'admin',
                 title: 'Admin',
                 loadComponent: () => import('./page/admin/admin.component'),

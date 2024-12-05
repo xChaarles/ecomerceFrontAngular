@@ -1,0 +1,36 @@
+<div class="flex gap-x-6 justify-center">    
+    <div class="flex border-gray-600 w-2/3 justify-center">
+        <div class="flex flex-col pt-10">
+            <div class=" overflow-x-auto pb-4">
+                <div class="min-w-full inline-block align-middle">
+                    <div class="overflow-hidden shadow-lg shadow-gray-500 border rounded-lg ">
+                        <table class="table-auto min-w-full rounded-xl">
+                            <thead>
+                                <tr class="bg-gray-800">
+                                    <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> ID </th>
+                                    <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> Numero de orden </th>
+                                    <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> Fecha </th>
+                                    <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> Acciones </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-300 ">
+                                @for (orden of ordenes; track $index) {  
+                                    <tr class="bg-white transition-all duration-500 hover:bg-gray-50">
+                                        <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ orden.oid }}</td>
+                                        <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ orden.numeroOrden }}</td>
+                                        <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ orden.fechaCreacion }}</td>
+                                        <td class="flex p-5 items-center gap-0.5"> 
+                                            <button (click)="detallesOrden(orden.oid)"
+                                            class="p-2 bg-gray-700 text-white rounded-lg group transition-all duration-500 hover:bg-gray-500 flex item-center">
+                                                Detalle
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

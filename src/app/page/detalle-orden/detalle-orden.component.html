@@ -1,0 +1,64 @@
+<div class="flex justify-center">
+    <div class="flex p-6">
+        <div class="flex pt-10">
+            <div class="flex border-gray-600">
+                <div class="overflow-x-auto pb-4">
+                    <div class="min-w-full inline-block align-middle">
+                        <div class="overflow-hidden flex flex-col gap-x-5 pl-5 shadow-lg shadow-gray-600 border rounded-lg ">   
+                            <div class="flex justify-center pt-4">
+                                <h1 class="uppercase whitespace-nowrap text-sm leading-6 font-medium text-gray-900">Detalle de la Orden</h1>
+                            </div>
+                            <div class="flex">
+                                <div class="flex border-gray-600 justify-center p-5">
+                                    <div class="flex flex-col">
+                                        <div class="overflow-x-auto pb-4">
+                                            <div class="min-w-full inline-block align-middle">
+                                                <div class="overflow-hidden border rounded-lg ">
+                                                    <table class="table-auto min-w-full rounded-xl">
+                                                        <thead>
+                                                            <tr class="bg-gray-800">
+                                                                <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize min-w-[150px]"> Nombre </th>
+                                                                <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> precio </th>
+                                                                <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> Cantidad </th>
+                                                                <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> total </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="divide-y divide-gray-300 ">
+                                                            @for (producto of detalleOrden; track $index) {  
+                                                                <tr class="bg-white transition-all duration-500 hover:bg-gray-50">
+                                                                    <td class=" px-5 py-3">
+                                                                        <div class="w-48 flex items-center gap-3">
+                                                                            <img [src]=" producto.imgp " alt="Floyd image" class="w-8 h-8 rounded-full">
+                                                                            <div class="data">
+                                                                                <p class="font-normal text-sm text-gray-900">{{ producto.nombre }}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> $ {{ producto.precio }}</td>
+                                                                    <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ producto.cantidad }}</td>
+                                                                    <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> $ {{ producto.total }}</td>                 
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                        <tbody class="border-t border-gray-300">
+                                                            <tr class="bg-white transition-all duration-500 hover:bg-gray-50">
+                                                                <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"></td>
+                                                                <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> Total : </td>
+                                                                <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"></td>
+                                                                <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">$ {{ orden.totalAcumulado }}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

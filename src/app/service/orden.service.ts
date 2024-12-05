@@ -41,5 +41,13 @@ export class OrdenService {
     return this.http.post<any>(url,body, {headers})
   }
 
+  getOrdenesUsers(userId: string, token: string):Observable<any>{
+    const url = `${this.apio}/user/ordenes/${userId}`;
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    });
+    return this.http.get<any>(url, {headers})
+  }
+
 
 }

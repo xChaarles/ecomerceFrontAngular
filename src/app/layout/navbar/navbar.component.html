@@ -55,7 +55,9 @@
                 }
                 @if (isAuthenticated){
                 <li>
-                    <button [routerLink]="['pages/singUp']"
+                    <button [routerLink]="['pages/perfil']"
+                    class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Perfil</button>
+                    <button [routerLink]="['pages/misCompras']"
                     class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Mis Compras</button>
                 </li>
                 @if (isAuthenticated) {
