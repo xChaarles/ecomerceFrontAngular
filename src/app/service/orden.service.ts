@@ -49,5 +49,12 @@ export class OrdenService {
     return this.http.get<any>(url, {headers})
   }
 
+  getAllOrdenes(token:string):Observable<any>{
+    const url = `${this.apio}/admin/orden-all`;
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    });
+    return this.http.get<any>(url, {headers})
+  }
 
 }

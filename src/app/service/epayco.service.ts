@@ -9,7 +9,7 @@ declare var ePayco: any;
 })
 export class EpaycoService {
 
-  private publicKey = '';
+  private publicKey = '13b4d19452a85c009d50326311e14f74';
   constructor(private http: HttpClient) { }
 
   realizarPago(data: any): void {

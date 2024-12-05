@@ -24,7 +24,7 @@ export default class UserlistComponent implements OnInit {
     this.userService.getAllUser(token).subscribe(
       (dato) => {
         console.log(dato)
-        this.user = dato.userList;
+        this.user = dato.userResList;
       }
     )
   }

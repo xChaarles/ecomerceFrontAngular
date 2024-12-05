@@ -57,8 +57,10 @@
                 <li>
                     <button [routerLink]="['pages/perfil']"
                     class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Perfil</button>
-                    <button [routerLink]="['pages/misCompras']"
-                    class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Mis Compras</button>
+                    @if (isUser) {
+                        <button [routerLink]="['pages/misCompras']"
+                        class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Mis Compras</button>
+                    }
                 </li>
                 @if (isAuthenticated) {
                     <button (click)="logout()"
@@ -67,10 +69,12 @@
                 }
             </ul>
         </div>
+        @if (isUser) {
         <div class="dropdown dropdown-end me-2" [routerLink]="['pages/carrito']">
             <div tabindex="0" role="button" >
                 <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
             </div>
         </div>
+    }
     </div>
 </div>

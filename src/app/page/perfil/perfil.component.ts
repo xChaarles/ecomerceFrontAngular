@@ -18,12 +18,15 @@ export default class PerfilComponent implements OnInit {
   email:any;
   numeroContacto:any;
   ciudad:any;
+  isUser:boolean;
 
-  constructor( private router:Router
+  constructor( private router:Router,
+               private userService:UserService
               ){}
 
   ngOnInit(): void {
     this.getUserId();
+    this.isUser = this.userService.isUser()
   }
 
   getUserId(){
