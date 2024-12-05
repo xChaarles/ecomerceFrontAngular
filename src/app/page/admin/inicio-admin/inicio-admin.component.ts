@@ -85,7 +85,7 @@ export default class InicioAdminComponent implements OnInit {
   }
 
   detallesOrden(ordenId:string){
-
+    this.router.navigate(['/pages/detalleOrden', ordenId])
   }
 
 }

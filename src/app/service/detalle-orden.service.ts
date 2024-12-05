@@ -19,7 +19,7 @@ export class DetalleOrdenService {
   }
 
   getDetalleOrdenUser(ordenId:string, token:string):Observable<any>{
-    const url = `${this.apio}/user/detalle-orden/${ordenId}`;
+    const url = `${this.apio}/adminuser/detalle-orden/${ordenId}`;
     const headers = new HttpHeaders ({
       'Authorization' : `Bearer ${token}`
     });
