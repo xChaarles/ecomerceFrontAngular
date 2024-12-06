@@ -22,11 +22,11 @@ Este e-comerce es un proyecto personal donde implemneto mis conocimientos y se v
 ## Imagenes
 
 ![Incio](public/inicio1.jpg)
-![Inicio](public/inicio.jpg)
+![Inicio](public/Inicio.jpg)
 ![login](public/Login.jpg)
-![Registro](public/Registro)
+![Registro](public/Registro.jpg)
 ![Carrito](public/Carrito.jpg)
-![Confirmacion Compra](public/ConfirmarOrden.jpg)
+![Confirmacion Compra](public/ConfrimarOrden.jpg)
 ![Conexion Epayco](public/ConexionEpayco.jpg)
 ![Confirmacion ePayco](public/ConfirEpayco.jpg)
 ![Confirmacion Compra](public/ConfirmacionCompra.jpg)
