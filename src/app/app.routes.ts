@@ -71,6 +71,11 @@ export const routes: Routes = [
                     loadComponent: () => import('./page/admin/inicio-admin/inicio-admin.component')
                   },
                   {
+                    path: 'transacciones',
+                    title: 'Transacciones',
+                    loadComponent: () => import('./page/admin/transacciones/transacciones.component')
+                  },
+                  {
                     path: 'formulario',
                     title: 'Formulario',
                     loadComponent: () => import('./page/admin/formulario/formulario.component'),

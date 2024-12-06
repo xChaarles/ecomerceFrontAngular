@@ -1,0 +1,39 @@
+<div class="flex flex-col pt-6 items-center">
+    <div class=" overflow-x-auto">
+        <div class="min-w-full inline-block align-middle">
+            <div class="overflow-hidden  border rounded-lg ">
+                <table class="table-auto min-w-full rounded-xl">
+                    <thead>
+                        <tr class="bg-gray-800">
+                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> Orden ID </th>
+                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize min-w-[150px]"> Nombre & Email </th>
+                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> Estado </th>
+                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> Numero de Orden </th>
+                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> Fecha de Creacion </th>
+                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-400 capitalize"> total </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-300 ">
+                        @for (orden of ordenes; track $index) {  
+                        <tr class="bg-white transition-all duration-500 hover:bg-gray-50">
+                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ orden.oid }} </td>
+                            <td class=" px-5 py-3">
+                                <div class="w-48 flex items-center gap-3">
+                                    <div class="data">
+                                        <p class="font-normal text-sm text-gray-900">{{ orden.user.nombre }} {{ orden.user.apellido }}</p>
+                                        <p class="font-normal text-xs leading-5 text-gray-400"> {{ orden.user.email }} </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ orden.estado }}</td>
+                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ orden.numeroOrden }}</td>
+                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ orden.fechaCreacion }}</td>
+                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{ orden.total }}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

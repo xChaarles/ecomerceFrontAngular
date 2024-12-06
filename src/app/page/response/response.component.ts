@@ -36,14 +36,11 @@ export default class ResponseComponent implements OnInit {
           (respuesta) => {
             this.status = respuesta.title_response;
             this.mensaje = respuesta.message || 'Transacción procesada con éxito.';
-            console.log('Respuesta del backend:', respuesta);
             this.respuesta = respuesta.data.x_response
             this.transactionDate = respuesta.data.x_fecha_transaccion
             this.numeroOrden = respuesta.data.x_id_invoice;
             this.amount = respuesta.data.x_amount
             this.descripcion = respuesta.data.x_description
-            console.log(this.respuesta)
-
             if (this.status === "Correcto") {
               // Espera 5 segundos antes de confirmar la compra
               setTimeout(() => {
@@ -52,12 +49,10 @@ export default class ResponseComponent implements OnInit {
             }
           },
           (error) => {
-            console.error('Error al validar la transacción:', error);
             this.mensaje = 'Error al validar la transacción.';
           }
         );
       } else {
-        console.error('No se recibió el parámetro ref_payco.');
         this.mensaje = 'Faltan parámetros para validar la transacción.';
       }
     }
@@ -70,15 +65,19 @@ export default class ResponseComponent implements OnInit {
         this.ordenService.confirmarCompra(userId, this.ref_payco, token).subscribe(
           (respuesta) => {
             this.statusCode = respuesta.statusCode
+
+            if(this.statusCode == 200){
+              setTimeout(() => {
+                this.router.navigate(['/pages/misCompras']); // Llama al método para confirmar la compra
+              }, 10000);   
+            }
             // Redirigir al usuario o mostrar una notificación
           },
           (error) => {
-            console.error('Error al confirmar la compra:', error);
             this.mensaje = 'Error al confirmar la compra.';
           }
         );
       } else {
-        console.error('Faltan parámetros para confirmar la compra.');
         this.mensaje = 'No se pudo confirmar la compra.';
       }
     }
