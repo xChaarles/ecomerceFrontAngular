@@ -22,7 +22,7 @@ export default class DetalleCompraComponent implements OnInit {
   ref_payco: string | null;
   detalleCarrito: any [] = [];
 
-  constructor(private CarritoService:CarritoService,
+  constructor(private carritoService:CarritoService,
               private epaycoService:EpaycoService,
               private ordenService:OrdenService,
               private route:ActivatedRoute
@@ -36,7 +36,7 @@ export default class DetalleCompraComponent implements OnInit {
     this.userId = localStorage.getItem('userId');
     const token: any = localStorage.getItem('token');
 
-    this.CarritoService.getCarritoPorUser(this.userId, token).subscribe( dato => {
+    this.carritoService.getCarritoPorUser(this.userId, token).subscribe( dato => {
       this.carrito = dato;
       this.detalleCarrito = dato.detalles
       this.user = dato.userDTO
@@ -67,7 +67,6 @@ export default class DetalleCompraComponent implements OnInit {
     const descripcion = 'Compro :' + nombreProducto;
 
     this.ref_payco = this.route.snapshot.queryParamMap.get('ref_payco');
-    console.log(this.ref_payco)
 
     const data = {
       name: this.user.nombre,
